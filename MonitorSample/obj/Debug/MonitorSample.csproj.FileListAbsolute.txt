@@ -1,0 +1,9 @@
+c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\MonitorSample\bin\Debug\MonitorSample.exe.config
+c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\MonitorSample\bin\Debug\MonitorSample.exe
+c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\MonitorSample\bin\Debug\MonitorSample.pdb
+c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\MonitorSample\obj\Debug\MonitorSample.csprojResolveAssemblyReference.cache
+c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\MonitorSample\obj\Debug\MonitorSample.exe
+c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\MonitorSample\obj\Debug\MonitorSample.pdb
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\bin\Debug\MonitorSample.exe.config
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\obj\Debug\MonitorSample.exe
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\obj\Debug\MonitorSample.pdb
