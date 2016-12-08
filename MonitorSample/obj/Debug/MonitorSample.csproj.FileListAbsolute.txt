@@ -7,3 +7,6 @@ c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\MonitorSample\
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\bin\Debug\MonitorSample.exe.config
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\obj\Debug\MonitorSample.exe
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\obj\Debug\MonitorSample.pdb
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\bin\Debug\MonitorSample.exe
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\bin\Debug\MonitorSample.pdb
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\MonitorSample\obj\Debug\MonitorSample.csprojResolveAssemblyReference.cache

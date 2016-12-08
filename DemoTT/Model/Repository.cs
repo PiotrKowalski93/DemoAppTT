@@ -10,18 +10,18 @@ namespace DemoTT.Model
 {
     public class Repository
     {
-        List<Client> clients;
+        List<Client> _clients;
         Client waitingClient;
 
         public Client GetWaitingClient()
         {
             lock (this)
             {
-                waitingClient = clients.Where(c => c.IsWaiting == true).FirstOrDefault();
+                waitingClient = _clients.Where(c => c.IsWaiting == true).FirstOrDefault();
                 if (waitingClient != null)
                 {
                     waitingClient.IsWaiting = false;
-                    clients.Remove(waitingClient);
+                    _clients.Remove(waitingClient);
                 }
             }
             return waitingClient;
@@ -32,23 +32,28 @@ namespace DemoTT.Model
             lock (this)
             {
                 client.IsWaiting = true;
-                clients.Add(client);
+                _clients.Add(client);
             }
         }
 
         public void CreateClients(int count)
         {
-            clients = new List<Client>();
+            _clients = new List<Client>();
 
             for (int i = 1; i <= count; i++)
             {
-                clients.Add(new Client(i));
+                _clients.Add(new Client(i));
             }
         }
 
         public ObservableCollection<Client> GetClients()
         {
-            return clients.ToObservableCollection();
+            return _clients.ToObservableCollection();
+        }
+
+        public void SetClients(ObservableCollection<Client> clients)
+        {
+            _clients = clients.ToList();
         }
     }
 }
