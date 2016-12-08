@@ -11,28 +11,29 @@ namespace DemoTT.Model
     public class Repository
     {
         List<Client> _clients;
-        Client waitingClient;
+        //Queue<Client> _clients;
 
         public Client GetWaitingClient()
         {
-            lock (this)
+            lock (_clients)
             {
+                Client waitingClient;
+
                 waitingClient = _clients.Where(c => c.IsWaiting == true).FirstOrDefault();
                 if (waitingClient != null)
                 {
                     waitingClient.IsWaiting = false;
-                    _clients.Remove(waitingClient);
                 }
-            }
-            return waitingClient;
+
+                return waitingClient;
+            }            
         }
 
         public void PushClientToWait(Client client)
         {
-            lock (this)
+            lock (_clients)
             {
-                client.IsWaiting = true;
-                _clients.Add(client);
+                _clients.Where(c => c.Id == client.Id).First().IsWaiting = true;                
             }
         }
 

@@ -57,26 +57,27 @@ namespace DemoTT.Model
 
             Status = DriverStatuses.Waiting;
         }
-        public void StartWork()
-        {
-            while (true)
-            {
-                Client client = _repo.GetWaitingClient();                
 
-                if (client == null) continue;
+        //public void StartWork()
+        //{
+        //    while (true)
+        //    {
+        //        Client client = _repo.GetWaitingClient();                
 
-                Debug.WriteLine("Starting Driver: {0}", _id);
+        //        if (client == null) continue;
+
+        //        Debug.WriteLine("Starting Driver: {0}", _id);
                 
-                ClientId = client.Id;
-                client.StartService();
-                Status = DriverStatuses.DuringWork;
+        //        ClientId = client.Id;
+        //        client.StartService();
+        //        Status = DriverStatuses.DuringWork;
 
-                _repo.PushClientToWait(client);
-                Status = DriverStatuses.Waiting;
+        //        _repo.PushClientToWait(client);
+        //        Status = DriverStatuses.Waiting;
 
-                Debug.WriteLine("Releasing Driver: {0}", _id);
-            }
-        }
+        //        Debug.WriteLine("Releasing Driver: {0}", _id);
+        //    }
+        //}
 
     }
 }
