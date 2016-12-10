@@ -13,7 +13,6 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using DemoTT.Model;
-using DemoTT.Services;
 
 namespace DemoTT.ViewModel
 {
@@ -38,9 +37,7 @@ namespace DemoTT.ViewModel
             {
                 SimpleIoc.Default.Register<IDataService, DataService>();
             }
-
-            SimpleIoc.Default.Register<IDataGeneratorService, DataGeneratorService>();
-
+            
             SimpleIoc.Default.Register<MainViewModel>();
         }
 

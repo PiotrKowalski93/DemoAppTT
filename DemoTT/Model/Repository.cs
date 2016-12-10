@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DemoTT.Extensions;
 
 namespace DemoTT.Model
@@ -11,15 +8,51 @@ namespace DemoTT.Model
     public class Repository
     {
         List<Client> _clients;
-        //Queue<Client> _clients;
+        List<Driver> _drivers;      
 
-        public Client GetWaitingClient()
+        public void CreateDrivers(int count)
+        {
+            _drivers = new List<Driver>();
+            int driverId;
+
+            for (int i = 0; i < count; i++)
+            {
+                driverId = i;
+                driverId++;
+                _drivers.Add(new Driver(driverId));
+            }
+        }
+                
+        public void UpdateDriver(Driver driver)
+        {
+            lock(_drivers)
+            {
+                Driver toUpdate = _drivers.Where(d => d.Id == driver.Id).SingleOrDefault();
+                toUpdate.ClientId = driver.ClientId;
+                toUpdate.Status = driver.Status;
+            }
+        }
+
+        public ObservableCollection<Driver> GetDrivers()
+        {
+            lock(_drivers)
+            {
+                return _drivers.ToObservableCollection();
+            }
+        }
+
+        public Driver GetDriver(int id)
+        {
+            return _drivers.Where(d => d.Id == id).SingleOrDefault();
+        }
+
+        public Client GetWaitingClient(Driver driver)
         {
             lock (_clients)
             {
                 Client waitingClient;
-
-                waitingClient = _clients.Where(c => c.IsWaiting == true).FirstOrDefault();
+                
+                waitingClient = _clients.ChooseShortestDistanceExample(driver.Coordinates);
                 if (waitingClient != null)
                 {
                     waitingClient.IsWaiting = false;

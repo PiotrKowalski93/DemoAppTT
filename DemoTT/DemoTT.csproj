@@ -54,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -75,7 +76,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\AsyncDelegateCommand.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Enums\ClientStatuses.cs" />
     <Compile Include="Enums\DriverStatuses.cs" />
@@ -86,8 +86,6 @@
     <Compile Include="Model\Driver.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Repository.cs" />
-    <Compile Include="Services\DataGeneratorService.cs" />
-    <Compile Include="Services\IDataGeneratorService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">

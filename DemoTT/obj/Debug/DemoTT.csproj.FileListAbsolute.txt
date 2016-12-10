@@ -31,16 +31,6 @@ c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\DemoTT\obj\Deb
 c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\DemoTT\obj\Debug\DemoTT.exe
 c:\Users\KowalskiP\Documents\Visual Studio 2015\Projects\DemoTaxi\DemoTT\obj\Debug\DemoTT.pdb
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\bin\Debug\DemoTT.exe.config
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT.exe
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT.pdb
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT.csprojResolveAssemblyReference.cache
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\MainWindow.baml
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\Skins\MainSkin.baml
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\MainWindow.g.cs
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\App.g.cs
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT_MarkupCompile.cache
-C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT_MarkupCompile.lref
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\bin\Debug\DemoTT.exe
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\bin\Debug\DemoTT.pdb
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\bin\Debug\DemoTT.exe.CodeAnalysisLog.xml
@@ -58,7 +48,16 @@ C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\bin\Debug\GalaSoft.MvvmLight.Pl
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\MainWindow.baml
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\Skins\MainSkin.baml
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\MainWindow.g.cs
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\App.g.cs
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT_MarkupCompile.cache
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT_MarkupCompile.lref
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\App.baml
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT.g.resources
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT.Properties.Resources.resources
 C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT.csproj.GenerateResource.Cache
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT.exe
+C:\Users\KowalskiP\Source\Repos\DemoAppTT\DemoTT\obj\Debug\DemoTT.pdb

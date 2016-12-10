@@ -47,9 +47,13 @@ namespace MonitorSample
                 var client = _repo.GetWaitingClient();
 
                 if (client == null) continue;
+
                 Console.WriteLine("Starting Driver: {0}", _id);
+
                 client.StartService();
+
                 _repo.PushClientToWait(client);
+
                 Console.WriteLine("Releasing Driver: {0}", _id);
             }       
         }

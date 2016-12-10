@@ -1,21 +1,19 @@
 ﻿using DemoTT.Enums;
-using DemoTT.Model;
 using System;
-using System.Collections.Generic;
+using System.Device.Location;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DemoTT.Model
 {
     public class Driver
     {
-        private Repository _repo;
         private int _id;
         private int _clientId;
         private DriverStatuses _status;
-        
+
+        private static Random _random = new Random();
+
+        public GeoCoordinate Coordinates;
+
         public int Id
         {
             get
@@ -50,34 +48,19 @@ namespace DemoTT.Model
             }
         }
 
-        public Driver(Repository repo, int id)
+        public Driver(int id)
         {
-            _repo = repo;
             _id = id;
-
+            _clientId = 0;
             Status = DriverStatuses.Waiting;
+                        
+            Coordinates = new GeoCoordinate();
+
+            Coordinates.Latitude = _random.Next(10, 50);
+            Coordinates.Longitude = _random.Next(10, 50);
+
+            Debug.WriteLine("Driver: {0} | Latitude: {1} | Longitude: {2}", _id, Coordinates.Latitude, Coordinates.Longitude);
+
         }
-
-        //public void StartWork()
-        //{
-        //    while (true)
-        //    {
-        //        Client client = _repo.GetWaitingClient();                
-
-        //        if (client == null) continue;
-
-        //        Debug.WriteLine("Starting Driver: {0}", _id);
-                
-        //        ClientId = client.Id;
-        //        client.StartService();
-        //        Status = DriverStatuses.DuringWork;
-
-        //        _repo.PushClientToWait(client);
-        //        Status = DriverStatuses.Waiting;
-
-        //        Debug.WriteLine("Releasing Driver: {0}", _id);
-        //    }
-        //}
-
     }
 }

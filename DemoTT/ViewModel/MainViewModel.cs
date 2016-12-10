@@ -1,16 +1,11 @@
 ﻿using GalaSoft.MvvmLight;
 using DemoTT.Model;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using DemoTT.Services;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Command;
-using DemoTT.Commands;
 using System.Windows.Input;
 using System.Threading;
-using System.Windows.Threading;
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using DemoTT.Enums;
 
@@ -18,29 +13,21 @@ namespace DemoTT.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        // TODO: Bind to control in UI
-        private int _driversCount = 4;
+        // TODO: Bind to controls in UI
+        private int _driversCount = 3;
+        private int _clientsCount = 5;
+        
+        private Repository CentralRepository;      
+        private List<Timer> timers;
+        private Random random;
 
         public ICommand StartCommand { get; set; }
 
-        private Repository CentralRepository;
-        private ObservableCollection<Driver> _drivers;
-        private IDataGeneratorService _dataGeneratorService;
-
-        private List<BackgroundWorker> _workers;
-        private List<Timer> timers;
-
-        #region Properties
         public ObservableCollection<Client> Clients
         {
             get
             {
                 return CentralRepository.GetClients();
-            }
-            set
-            {
-                CentralRepository.SetClients(value);
-                base.RaisePropertyChanged("Clients");
             }
         }
 
@@ -48,42 +35,17 @@ namespace DemoTT.ViewModel
         {
             get
             {
-                return _drivers;
-            }
-            set
-            {
-                _drivers = value;
-                base.RaisePropertyChanged("Drivers");
+                return CentralRepository.GetDrivers();
             }
         }
-        #endregion
 
-        public MainViewModel(IDataGeneratorService dataGeneratorService)
+        public MainViewModel()
         {
-            _dataGeneratorService = dataGeneratorService;
-
             CentralRepository = new Repository();
-            CentralRepository.CreateClients(5);
+            CentralRepository.CreateClients(_clientsCount);
+            CentralRepository.CreateDrivers(_driversCount);
 
-            Drivers = new ObservableCollection<Driver>();
-
-            for (int i = 0; i < _driversCount; i++)
-            {
-                int id = i;
-                id++;
-
-                Drivers.Add(new Driver(CentralRepository, id));
-            }
-            
-            //_workers = new List<BackgroundWorker>();        
-
-            //for (int i = 0; i < _driversCount; i++)
-            //{
-            //    BackgroundWorker worker = new BackgroundWorker();
-            //    worker.DoWork += MainViewModel_DoWork;
-
-            //    _workers.Add(worker);
-            //}
+            random = new Random();
             
             StartCommand = new RelayCommand(() => StartWork());
         }
@@ -93,21 +55,22 @@ namespace DemoTT.ViewModel
             Driver driver = (Driver)state;
 
             if(driver != null)
-            {
-                //driver.StartWork
-                
+            {                
+                int rand;
+
                 while (true)
                 {
-                    Client client = CentralRepository.GetWaitingClient();
+                    Client client = CentralRepository.GetWaitingClient(driver);
                     base.RaisePropertyChanged("Clients");
 
                     if (client == null) continue;
+                                      
+                    rand = random.Next(0, 100);
 
-                    Random random = new Random();
-                    int rand = random.Next(1, 4);
-
-                    if (rand == 2)
+                    if (rand <= 30)
                     {
+                        Debug.WriteLine("Driver: {0} refused. {1}", driver.Id, rand);
+
                         CentralRepository.PushClientToWait(client);
                         base.RaisePropertyChanged("Clients");                             
                     }
@@ -117,7 +80,7 @@ namespace DemoTT.ViewModel
 
                         driver.ClientId = client.Id;
                         driver.Status = DriverStatuses.DuringWork;
-
+                        CentralRepository.UpdateDriver(driver);
                         base.RaisePropertyChanged("Drivers");
 
                         client.StartService();
@@ -125,31 +88,31 @@ namespace DemoTT.ViewModel
                         CentralRepository.PushClientToWait(client);
                         base.RaisePropertyChanged("Clients");
 
-                        driver.Status = DriverStatuses.Waiting;
+                        driver.Status = DriverStatuses.DrivingBack;
+                        CentralRepository.UpdateDriver(driver);
                         base.RaisePropertyChanged("Drivers");
 
-                        Debug.WriteLine("Releasing Driver: {0}", driver.Id);
+                        Debug.WriteLine("Driver: {0} drive back", driver.Id);
+                        Thread.Sleep(10000);
+
+                        driver.ClientId = 0;
+                        driver.Status = DriverStatuses.Waiting;
+                        CentralRepository.UpdateDriver(driver);
+                        base.RaisePropertyChanged("Drivers");
+
+                        Debug.WriteLine("Releasing Driver: {0}", driver.Id);    
                     }
-
-                    Thread.Sleep(5000);
-                }
-
-                Debug.WriteLine("Started");
+                }                
             }
         }
 
         private void StartWork()
         {
-            //for (int i = 0; i < _driversCount; i++)
-            //{
-            //    _workers[i].RunWorkerAsync(_drivers[i]);
-            //}
-
             timers = new List<Timer>();
 
-            for (int i = 0; i < _driversCount; i++)
+            for (int i = 1; i <= _driversCount; i++)
             {
-                Timer timer = new Timer(DriverWork, _drivers[i], 5000, Timeout.Infinite);
+                Timer timer = new Timer(DriverWork, CentralRepository.GetDriver(i), 0, Timeout.Infinite);
                 timers.Add(timer);
             }
         }

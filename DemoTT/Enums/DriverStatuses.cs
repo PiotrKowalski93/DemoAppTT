@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DemoTT.Enums
+﻿namespace DemoTT.Enums
 {
     public enum DriverStatuses
     {
         Waiting = 0,
-        DuringWork = 1
+        DuringWork = 1,
+        DrivingBack = 2
     }
 }
