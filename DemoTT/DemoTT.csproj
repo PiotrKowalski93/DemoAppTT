@@ -76,15 +76,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Enums\ClientStatuses.cs" />
     <Compile Include="Enums\DriverStatuses.cs" />
     <Compile Include="Extensions\LinqExtension.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\DataItem.cs" />
-    <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\Driver.cs" />
-    <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Repository.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
